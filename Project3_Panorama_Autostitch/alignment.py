@@ -42,7 +42,21 @@ def computeHomography(f1, f2, matches, A_out=None):
         #Fill in the matrix A in this loop.
         #Access elements using square brackets. e.g. A[0,0]
         #TODO-BLOCK-BEGIN
-        raise Exception("TODO in alignment.py not implemented")
+        
+        A[i,0] = a_x
+        A[i,1] = a_y
+        A[i,2] = 1
+        A[i,6] = -b_x * a_x
+        A[i,7] = -b_x * a_y
+        A[i,8] = -b_x
+
+        A[i+1,3] = a_x
+        A[i+1,4] = a_y
+        A[i+1,5] = 1
+        A[i+1,6] = -b_y * a_x
+        A[i+1,7] = -b_y * b_y
+        A[i+1,8] = -b_y
+
         #TODO-BLOCK-END
         #END TODO
 
@@ -62,7 +76,11 @@ def computeHomography(f1, f2, matches, A_out=None):
     #BEGIN TODO 3
     #Fill the homography H with the appropriate elements of the SVD
     #TODO-BLOCK-BEGIN
-    raise Exception("TODO in alignment.py not implemented")
+
+    V = Vt[::-1]
+    V_last = Vt[0]
+    H = V_last.reshape(3,3)
+
     #TODO-BLOCK-END
     #END TODO
 
@@ -103,7 +121,38 @@ def alignPair(f1, f2, matches, m, nRANSAC, RANSACthresh):
     #This function should also call get_inliers and, at the end,
     #least_squares_fit.
     #TODO-BLOCK-BEGIN
-    raise Exception("TODO in alignment.py not implemented")
+    
+    s = 0 
+    largest_indices = []
+
+    if m == eTRanslation:
+        s = 1
+    else:
+        s = 4
+
+    for i in range(nRANSAC):
+        #select randomly
+        sample = np.random.sample(matches, s)
+
+        homography = np.eye(3,3)
+        #estimate model
+        if m == eTranslation: 
+            (a_x, a_y) = f1[m.queryIdx].pt
+            (b_x, b_y) = f2[m.trainIdx].pt
+
+            homography[0,2] = b_x - a_x
+            homography[1,2] = b_y - a_y
+        else:
+            homography = computeHomography(f1, f2, sample)
+
+        inlier_indices = getInliers(f1, f2, matches, homography, RANSACthresh)
+    
+    
+        if len(inlier_indices) > len(largest_indices):
+            largest_indices = inlier_indices
+
+    M = leastSquaresFit(f1, f2, matches, m, largest_indices) 
+
     #TODO-BLOCK-END
     #END TODO
     return M
