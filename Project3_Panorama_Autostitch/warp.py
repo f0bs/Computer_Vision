@@ -74,13 +74,13 @@ def computeSphericalWarpMappings(dstShape, f, k1, k2):
     
     x = np.sin(xf) * np.cos(yf)
     y = np.sin(yf)
-    z = np.cos(yf) * np.cos(yf)
+    z = np.cos(xf) * np.cos(yf)
 
     xx = x/z
     yy = y/z
 
     #radial distortion
-    r = xx**2 + yx**2
+    r = xx**2 + yy**2
     xt = xx*(1+k1*r+k2*r**2)
     yt = yy*(1+k1*r+k2*r**2)
 

@@ -43,19 +43,19 @@ def computeHomography(f1, f2, matches, A_out=None):
         #Access elements using square brackets. e.g. A[0,0]
         #TODO-BLOCK-BEGIN
         
-        A[i,0] = a_x
-        A[i,1] = a_y
-        A[i,2] = 1
-        A[i,6] = -b_x * a_x
-        A[i,7] = -b_x * a_y
-        A[i,8] = -b_x
+        A[2*i,0] = a_x
+        A[2*i,1] = a_y
+        A[2*i,2] = 1
+        A[2*i,6] = -b_x * a_x
+        A[2*i,7] = -b_x * a_y
+        A[2*i,8] = -b_x
 
-        A[i+1,3] = a_x
-        A[i+1,4] = a_y
-        A[i+1,5] = 1
-        A[i+1,6] = -b_y * a_x
-        A[i+1,7] = -b_y * b_y
-        A[i+1,8] = -b_y
+        A[2*i+1,3] = a_x
+        A[2*i+1,4] = a_y
+        A[2*i+1,5] = 1
+        A[2*i+1,6] = -b_y * a_x
+        A[2*i+1,7] = -b_y * b_y
+        A[2*i+1,8] = -b_y
 
         #TODO-BLOCK-END
         #END TODO
@@ -78,7 +78,7 @@ def computeHomography(f1, f2, matches, A_out=None):
     #TODO-BLOCK-BEGIN
 
     V = Vt[::-1]
-    V_last = Vt[0]
+    V_last = V[0]
     H = V_last.reshape(3,3)
 
     #TODO-BLOCK-END
@@ -125,20 +125,21 @@ def alignPair(f1, f2, matches, m, nRANSAC, RANSACthresh):
     s = 0 
     largest_indices = []
 
-    if m == eTRanslation:
+    if m == eTranslate:
         s = 1
     else:
         s = 4
 
     for i in range(nRANSAC):
         #select randomly
-        sample = np.random.sample(matches, s)
+        sample = random.sample(matches, s)
 
         homography = np.eye(3,3)
         #estimate model
-        if m == eTranslation: 
-            (a_x, a_y) = f1[m.queryIdx].pt
-            (b_x, b_y) = f2[m.trainIdx].pt
+        if m == eTranslate: 
+            n = matches[0]
+            (a_x, a_y) = f1[n.queryIdx].pt
+            (b_x, b_y) = f2[n.trainIdx].pt
 
             homography[0,2] = b_x - a_x
             homography[1,2] = b_y - a_y
