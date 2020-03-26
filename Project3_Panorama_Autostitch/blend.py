@@ -65,7 +65,24 @@ def normalizeBlend(acc):
     # BEGIN TODO 11
     # fill in this routine..
     #TODO-BLOCK-BEGIN
-    raise Exception("TODO in blend.py not implemented")
+    
+
+    x, y, c, a = acc.shape
+    img = np.zeros((x, y, 3))
+
+    for i in range(x):
+        for j in range(y):
+            if acc.shape[i, j, 3] != 0:
+                img[i, j, 0] = acc[i, j, 0] / acc.shape[i, j, 3]
+                img[i, j, 1] = acc[i, j, 1] / acc.shape[i, j, 3]
+                img[i, j, 2] = acc[i, j, 2] / acc.shape[i, j, 3]
+            else:
+                img[i, j, 0] = 0
+                img[i, j, 1] = 0
+                img[i, j, 2] = 0
+
+    img = np.uint8(img)
+
     #TODO-BLOCK-END
     # END TODO
     return img
