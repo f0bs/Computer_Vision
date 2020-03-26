@@ -188,7 +188,22 @@ def getInliers(f1, f2, matches, M, RANSACthresh):
         #by M, is within RANSACthresh of its match in f2.
         #If so, append i to inliers
         #TODO-BLOCK-BEGIN
-        raise Exception("TODO in alignment.py not implemented")
+        
+        (a_x, a_y) = f1[matches[i].queryIdx].pt
+        (b_x, b_y) = f2[matches[i].trainIdx].pt    
+
+        pt = np.array([a_x, a_y, 1])
+        pt_pred = np.dot(pt,M) 
+
+        pt_pred[0] = pt_pred[0] / pt_pred[2]
+        pt_pred[1] = pt_pred[1] / pt_pred[2]
+
+        dist = (b_x - pt_pred[0])**2 + (b_y - pt_pred[1])**2
+
+        if dist <= RANSACthresh:
+            inlier_indices.append(i)
+
+
         #TODO-BLOCK-END
         #END TODO
 
