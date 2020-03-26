@@ -80,9 +80,9 @@ def computeSphericalWarpMappings(dstShape, f, k1, k2):
     yy = y/z
 
     #radial distortion
-    r = xx**2 + yy**2
-    xt = xx*(1+k1*r+k2*r**2)
-    yt = yy*(1+k1*r+k2*r**2)
+    r = np.sqrt(xx**2 + yy**2)
+    xt = xx*(1+k1*r**2+k2*r**4)
+    yt = yy*(1+k1*r**2+k2*r**4)
 
 
     # TODO-BLOCK-END
