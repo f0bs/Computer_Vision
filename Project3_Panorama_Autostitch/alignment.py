@@ -54,7 +54,7 @@ def computeHomography(f1, f2, matches, A_out=None):
         A[2*i+1,4] = a_y
         A[2*i+1,5] = 1
         A[2*i+1,6] = -b_y * a_x
-        A[2*i+1,7] = -b_y * b_y
+        A[2*i+1,7] = -b_y * a_y
         A[2*i+1,8] = -b_y
 
         #TODO-BLOCK-END
@@ -249,8 +249,8 @@ def leastSquaresFit(f1, f2, matches, m, inlier_indices):
             #over all inliers.
             #TODO-BLOCK-BEGIN
             match = matches[inlier_indices[i]]
-            x1, y1 = f1[match.queryIdx].pt
-            x2, y2 = f2[match.trainIdx].pt
+            (x1, y1) = f1[match.queryIdx].pt
+            (x2, y2) = f2[match.trainIdx].pt
 
             u += x2-x1
             v += y2-y1
