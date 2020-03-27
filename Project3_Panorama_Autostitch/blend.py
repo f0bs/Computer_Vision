@@ -242,6 +242,8 @@ def blendImages(ipv, blendWidth, is360=False, A_out=None):
     #TODO-BLOCK-BEGIN
     raise Exception("TODO in blend.py not implemented")
     #TODO-BLOCK-END
+    if is360:
+        A = computeDrift(x_init, y_init, x_final, y_final, width)
     # END TODO
 
     if A_out is not None:
