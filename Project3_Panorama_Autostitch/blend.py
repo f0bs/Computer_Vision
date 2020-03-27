@@ -66,7 +66,12 @@ def accumulateBlend(img, acc, M, blendWidth):
     # BEGIN TODO 10
     # Fill in this routine
     #TODO-BLOCK-BEGIN
-    raise Exception("TODO in blend.py not implemented")
+
+    minX, minY, maxX, maxY = imageBoundingBox(img, M)
+    
+    M_t = np.linalg.inv(M)
+    img_warp = cv2.warpPerspective(acc, img, M_t, (acc.shape[0], acc.shape[1]), flags=(cv2.WARP_INVERSE_MAP, cv2.INTER_NEAREST))
+
     #TODO-BLOCK-END
     # END TODO
 
