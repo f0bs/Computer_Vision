@@ -29,7 +29,20 @@ def imageBoundingBox(img, M):
     """
     #TODO 8
     #TODO-BLOCK-BEGIN
-    raise Exception("TODO in blend.py not implemented")
+    up_left_corner = np.dot(M, np.array([0, 0, 1]))
+    up_right_corner = np.dot(M, np.array([img.shape[1] - 1, 0, 1]))
+    down_left_corner = np.dot(M, np.array([0, img.shape[0] - 1, 1]))
+    down_right_corner = np.dot(M, np.array([img.shape[1] - 1, img.shape[0] - 1, 1]))
+
+    up_left_corner[0] /= up_left_corner[0, 2]
+    up_right_corner[0] /= up_right_corner[0, 2]
+    down_left_corner[0] /= down_left_corner[0, 2]
+    down_right_corner[0] /= down_right_corner[0, 2]
+
+    minX = min(up_left_corner[0,0], up_right_corner[0,0], down_left_corner[0,0], down_right_corner[0,0])
+    minY = min(up_left_corner[0,1], up_right_corner[0,1], down_left_corner[0,1], down_right_corner[0,1])
+    maxX = max(up_left_corner[0,0], up_right_corner[0,0], down_left_corner[0,0], down_right_corner[0,0])
+    maxY = max(up_left_corner[0,1], up_right_corner[0,1], down_left_corner[0,1], down_right_corner[0,1])
     #TODO-BLOCK-END
     return int(minX), int(minY), int(maxX), int(maxY)
 
