@@ -66,13 +66,14 @@ def accumulateBlend(img, acc, M, blendWidth):
     # BEGIN TODO 10
     # Fill in this routine
     #TODO-BLOCK-BEGIN
+    width = img.shape[1]
+    height = img.shape[0]
+    min_x, min_y, max_x, max_y = imageBoundingBox(img, M)
 
-    minX, minY, maxX, maxY = imageBoundingBox(img, M)
-    
-    for i in range(min_x, max_x):
-        for j in range(min_y, max_y):
-            p = np.array([[i, j, 1]]).T
-            p = np.dot(inv(M), p)
+    for ii in range(min_x, max_x):
+        for jj in range(min_y, max_y):
+            p = np.array([[ii, jj, 1]]).T
+            p = np.dot(np.linalg.inv(M), p)
             newx = int(p[0][0] / p[2][0])
             newy = int(p[1][0] / p[2][0])
             if newx >= 0 and newx < width - 1 and newy >= 0 and newy < height - 1:
@@ -95,6 +96,7 @@ def accumulateBlend(img, acc, M, blendWidth):
                 acc[jj, ii, 2] += B * weight
                 acc[jj, ii, 3] += weight
 
+
     #TODO-BLOCK-END
     # END TODO
 
@@ -112,15 +114,15 @@ def normalizeBlend(acc):
     #TODO-BLOCK-BEGIN
     
 
-    x, y, c, a = acc.shape
+    x, y, c = acc.shape
     img = np.zeros((x, y, 3))
 
     for i in range(x):
         for j in range(y):
-            if acc.shape[i, j, 3] != 0:
-                img[i, j, 0] = acc[i, j, 0] / acc.shape[i, j, 3]
-                img[i, j, 1] = acc[i, j, 1] / acc.shape[i, j, 3]
-                img[i, j, 2] = acc[i, j, 2] / acc.shape[i, j, 3]
+            if (acc[i, j][0] != 0 and acc[i, j][1] != 0 and acc[i, j][2] != 0):
+                img[i, j, 0] = acc[i, j, 0] / acc[i, j, 3]
+                img[i, j, 1] = acc[i, j, 1] / acc[i, j, 3]
+                img[i, j, 2] = acc[i, j, 2] / acc[i, j, 3]
             else:
                 img[i, j, 0] = 0
                 img[i, j, 1] = 0
