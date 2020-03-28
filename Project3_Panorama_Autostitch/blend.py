@@ -69,8 +69,31 @@ def accumulateBlend(img, acc, M, blendWidth):
 
     minX, minY, maxX, maxY = imageBoundingBox(img, M)
     
-    M_t = np.linalg.inv(M)
-    img_warp = cv2.warpPerspective(acc, img, M_t, (acc.shape[0], acc.shape[1]), flags=(cv2.WARP_INVERSE_MAP, cv2.INTER_NEAREST))
+    for i in range(min_x, max_x):
+        for j in range(min_y, max_y):
+            p = np.array([[i, j, 1]]).T
+            p = np.dot(inv(M), p)
+            newx = int(p[0][0] / p[2][0])
+            newy = int(p[1][0] / p[2][0])
+            if newx >= 0 and newx < width - 1 and newy >= 0 and newy < height - 1:
+                weight = 1.0
+                c1, c2 = 2**31, 2**31
+                if ii >= min_x and ii < min_x + blendWidth:
+                    c1 = float(ii - min_x) / blendWidth
+                if ii <= max_x and ii > max_x - blendWidth:
+                    c2 = float(max_x - ii) / blendWidth
+                weight = min(c1, weight, c2)
+                if img[newy, newx, 0] == 0 and img[newy, newx, 1] == 0 and img[newy, newx, 2] == 0:
+                    weight = 0.0
+
+                R = img[newy, newx, 0]
+                G = img[newy, newx, 1]
+                B = img[newy, newx, 2]
+
+                acc[jj, ii, 0] += R * weight
+                acc[jj, ii, 1] += G * weight
+                acc[jj, ii, 2] += B * weight
+                acc[jj, ii, 3] += weight
 
     #TODO-BLOCK-END
     # END TODO
