@@ -66,37 +66,40 @@ def accumulateBlend(img, acc, M, blendWidth):
     # BEGIN TODO 10
     # Fill in this routine
     #TODO-BLOCK-BEGIN
-    width = img.shape[1]
-    height = img.shape[0]
-    min_x, min_y, max_x, max_y = imageBoundingBox(img, M)
 
-    for ii in range(min_x, max_x):
-        for jj in range(min_y, max_y):
-            p = np.array([[ii, jj, 1]]).T
+    minX, minY, maxX, maxY = imageBoundingBox(img, M)
+    height, width = img.shape[:2]
+
+    for i in range(minX, maxX):
+        for j in range(minY, maxY):
+            p = np.array([[i, j, 1]]).T
             p = np.dot(np.linalg.inv(M), p)
-            newx = int(p[0][0] / p[2][0])
-            newy = int(p[1][0] / p[2][0])
-            if newx >= 0 and newx < width - 1 and newy >= 0 and newy < height - 1:
+            x = int(p[0][0] / p[2][0])
+            y = int(p[1][0] / p[2][0])
+
+            if (x >= 0) and (x < width-1) and (y >= 0) and (y < height-1):
                 weight = 1.0
                 c1, c2 = 2**31, 2**31
-                if ii >= min_x and ii < min_x + blendWidth:
-                    c1 = float(ii - min_x) / blendWidth
-                if ii <= max_x and ii > max_x - blendWidth:
-                    c2 = float(max_x - ii) / blendWidth
+
+                if i < (minX+blendWidth):
+                    c1 = float(i - minX) / blendWidth
+
+                if i > (maxX-blendWidth):
+                    c2 = float(maxX - i) / blendWidth
                 weight = min(c1, weight, c2)
-                if img[newy, newx, 0] == 0 and img[newy, newx, 1] == 0 and img[newy, newx, 2] == 0:
+
+                R = img[y, x, 0]
+                G = img[y, x, 1]
+                B = img[y, x, 2]
+
+                if (R == 0) and (G == 0) and (B == 0):
+                    #Set weight to zero for black pixel
                     weight = 0.0
 
-                R = img[newy, newx, 0]
-                G = img[newy, newx, 1]
-                B = img[newy, newx, 2]
-
-                acc[jj, ii, 0] += R * weight
-                acc[jj, ii, 1] += G * weight
-                acc[jj, ii, 2] += B * weight
-                acc[jj, ii, 3] += weight
-
-
+                acc[j, i, 0] += R * weight
+                acc[j, i, 1] += G * weight
+                acc[j, i, 2] += B * weight
+                acc[j, i, 3] += weight
     #TODO-BLOCK-END
     # END TODO
 
@@ -112,7 +115,6 @@ def normalizeBlend(acc):
     # BEGIN TODO 11
     # fill in this routine..
     #TODO-BLOCK-BEGIN
-    
 
     x, y, c = acc.shape
     img = np.zeros((x, y, 3))
