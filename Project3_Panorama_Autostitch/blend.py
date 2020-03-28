@@ -79,23 +79,22 @@ def accumulateBlend(img, acc, M, blendWidth):
 
             if (x >= 0) and (x < width-1) and (y >= 0) and (y < height-1):
                 weight = 1.0
-                c1, c2 = 2**31, 2**31
+
+                c1, c2 = weight, weight
 
                 if i < (minX+blendWidth):
                     c1 = float(i - minX) / blendWidth
 
                 if i > (maxX-blendWidth):
                     c2 = float(maxX - i) / blendWidth
+
                 weight = min(c1, weight, c2)
 
                 R = img[y, x, 0]
                 G = img[y, x, 1]
                 B = img[y, x, 2]
-
-                if (R == 0) and (G == 0) and (B == 0):
-                    #Set weight to zero for black pixel
-                    weight = 0.0
-
+                
+                # Update the accumulated image by adding new blended image 
                 acc[j, i, 0] += R * weight
                 acc[j, i, 1] += G * weight
                 acc[j, i, 2] += B * weight
