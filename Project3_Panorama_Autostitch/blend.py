@@ -48,6 +48,7 @@ def imageBoundingBox(img, M):
     maxX = max(up_left_corner[0], up_right_corner[0], down_left_corner[0], down_right_corner[0])
     maxY = max(up_left_corner[1], up_right_corner[1], down_left_corner[1], down_right_corner[1])
     #TODO-BLOCK-END
+    #print(maxX, maxY)
     return int(minX), int(minY), int(maxX), int(maxY)
 
 

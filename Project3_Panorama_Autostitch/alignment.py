@@ -83,7 +83,7 @@ def computeHomography(f1, f2, matches, A_out=None):
 
     #TODO-BLOCK-END
     #END TODO
-    print(H)
+
     return H
 
 def alignPair(f1, f2, matches, m, nRANSAC, RANSACthresh):
@@ -148,7 +148,6 @@ def alignPair(f1, f2, matches, m, nRANSAC, RANSACthresh):
 
         inlier_indices = getInliers(f1, f2, matches, homography, RANSACthresh)
     
-    
         if len(inlier_indices) > len(largest_indices):
             largest_indices = inlier_indices
 
@@ -156,6 +155,7 @@ def alignPair(f1, f2, matches, m, nRANSAC, RANSACthresh):
 
     #TODO-BLOCK-END
     #END TODO
+    
     return M
 
 def getInliers(f1, f2, matches, M, RANSACthresh):
