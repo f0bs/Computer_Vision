@@ -69,3 +69,18 @@ Click [here](http://www.cs.cornell.edu/courses/cs5670/2020sp/projects/pa3/index.
 ##### Panorama
 
 ![](/Project3_Panorama_Autostitch/resources/yosemite/yosemite_pano_homography_blendwidth50.png)
+
+
+#### Our own pictures
+
+##### Input
+
+| ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3653.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3654.jpg) | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3655.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3656.jpg) |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3657.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3658.jpg) | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3659.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3660.jpg) |
+| ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3661.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3662.jpg) | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3663.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3664.jpg) |
+| ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3665.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3666.jpg) |||
+
+##### Panorama
+
+![](/Project3_Panorama_Autostitch/resources/own_pictures/panorama.jpg)
