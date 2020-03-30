@@ -75,6 +75,9 @@ Click [here](http://www.cs.cornell.edu/courses/cs5670/2020sp/projects/pa3/index.
 
 ##### Input
 
+These pictures were taken with the iPhone XR with 4.25mm focal length and CCD (sensor) width of 5.66m
+
+
 | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3653.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3654.jpg) | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3655.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3656.jpg) |
 | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
 | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3657.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3658.jpg) | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3659.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3660.jpg) |
@@ -82,5 +85,7 @@ Click [here](http://www.cs.cornell.edu/courses/cs5670/2020sp/projects/pa3/index.
 | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3665.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3666.jpg) |||
 
 ##### Panorama
+
+The final 360 panorama looks a bit blurry because we did not have a tripod, i.e. the horizontal movement is not as consistent and we were not able to fully correct for the distortion. We used a blend width of 200 pixels and a translation to create the panorama.
 
 ![](/Project3_Panorama_Autostitch/resources/own_pictures/panorama.jpg)
