@@ -24,7 +24,7 @@ Click [here](http://www.cs.cornell.edu/courses/cs5670/2020sp/projects/pa1/index.
 
 | Name                  | Function                                           |
 | ------------          | -------------------------------------------------- |
-| resources             | Images used to create hybrid                       |
+| /resources             | Images used to create hybrid                       |
 | adjust_brightness.py  | Adjust brightness of output image                  |
 | hybrid.py             | Apply the five filters to the two images and blend |
 | test.py               | Test cases provided to test and debug our code     |
@@ -60,12 +60,12 @@ Robert De Niro (right.jpg): high pass
 ```
 
 ##### Input
-| <img src="/Project1_Hybrid_Images/left.jpg" height="400px">  | <img src="/Project1_Hybrid_Images/right.jpg" height="400px">  |
+| <img src="/Project1_Hybrid_Images/resources/left.jpg" height="400px">  | <img src="/Project1_Hybrid_Images/resources/right.jpg" height="400px">  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 ##### Hybrid Image
 
-| <img src="/Project1_Hybrid_Images/hybrid.jpg" height="400px">    | <img src="/Project1_Hybrid_Images/hybrid.jpg" height="100px"> 
+| <img src="/Project1_Hybrid_Images/resources/hybrid.jpg" height="400px">    | <img src="/Project1_Hybrid_Images/resources/hybrid.jpg" height="100px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
 
 
@@ -95,7 +95,7 @@ Click [here](http://www.cs.cornell.edu/courses/cs5670/2020sp/projects/pa2/index.
 
 | Name                  | Function                                           |
 | ------------          | -------------------------------------------------- |
-| resources             | Images used for feature matching                   |
+| /resources             | Images used for feature matching                   |
 | adjust_brightness.py  | Adjust brightness of output image                  |
 | hybrid.py             | Apply the five filters to the two images and blend |
 | test.py               | Test cases provided to test and debug our code     |
