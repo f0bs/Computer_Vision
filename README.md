@@ -1,6 +1,6 @@
 # CS5670 Computer Vision Projects and Artefacts
 
-### Project 1: Hybrid Images 
+## Project 1: Hybrid Images 
 
 ### Introduction
 
@@ -69,9 +69,13 @@ Robert De Niro (right.jpg): high pass
 | ---------------------------------------------------------------- | --------------------------------------- |
      
       
+   
+   
+   
+   
+   
       
-      
-### Project 2: Feature Detection & Matching 
+## Project 2: Feature Detection & Matching 
 
 ### Introduction
 
@@ -137,7 +141,7 @@ Not all matches are shown in the image (1120 matches in total)
 
 ##### Input
 
-| <img src="/Project2_Feature_Detection/resources/IMG_3580 height="400px">    | <img src="/Project2_Feature_Detection/resources/IMG_3581.jpg" height="400px"> 
+| <img src="/Project2_Feature_Detection/resources/IMG_3580" height="400px">    | <img src="/Project2_Feature_Detection/resources/IMG_3581.jpg" height="400px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
 
 ##### Matched features
@@ -149,12 +153,15 @@ Not all matches are shown (4960 matches in total)
 
 ### Performance Benchmark
 
-Using the MOPS Detector and Ratio matching led to the best performance with an average AUC of 0.944, followed by the  MOPS and SSD method with an AUC of 0.872. The Simple Descriptor with both Ratio matching (AUC of 0.86) and with SSD (AUC of 0.845) performed worse. 
+Using the MOPS Detector and Ratio matching led to the best performance with an average AUC of 0.944, followed by the  MOPS and SSD method with an AUC of 0.872. The Simple Descriptor with both Ratio matching (AUC of 0.86) and with SSD (AUC of 0.845) performed worse.
 
+| MOPS Ratio ROC Curve | MOPS SSD ROC Curve |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <img src="/Project2_Feature_Detection/resources/Bench_Ratio_MOPS.jpg" height="400px">  | <img src="/Project2_Feature_Detection/resources/Bench_Ratio_Simple.jpg" height="400px">  |
+
+| Simple Ratio ROC Curve | Simple SSD ROC Curve |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <img src="/Project2_Feature_Detection/resources/Bench_SSD_MOPS.jpg" height="400px">    | <img src="/Project2_Feature_Detection/resources/Bench_SSD_Simple.jpg" height="400px"> 
-| ---------------------------------------------------------------- | --------------------------------------- |
 
 
 
