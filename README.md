@@ -67,10 +67,10 @@ Robert De Niro (right.jpg): high pass
 
 | <img src="/Project1_Hybrid_Images/resources/hybrid.jpg" height="400px">    | <img src="/Project1_Hybrid_Images/resources/hybrid.jpg" height="100px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
-
-
-
-
+     
+      
+      
+      
 ### Project 2: Feature Detection & Matching 
 
 ### Introduction
@@ -114,20 +114,49 @@ Detailed project description can be found [here](http://www.cs.cornell.edu/cours
 
 #### Yosemite
 
-| <img src="/Project2_Feature_Detection/resources/Harris.jpg" height="400px">  | <img src="/Project2_Feature_Detection/resources/Harris1.jpg" height="400px">  |
+##### Input
+
+| <img src="/Project2_Feature_Detection/resources/yosemite1.jpg">  | <img src="/Project2_Feature_Detection/resources/yosemite2.jpg">  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+
+##### Detected features
+
+<img src="/Project2_Feature_Detection/resources/harris_features.png" height="400px">
+
+
+##### Matched features
+
+Not all matches are shown in the image (1120 matches in total)
+
+<img src="/Project2_Feature_Detection/resources/Harris.jpg"> 
+
+
 
 #### Cornell Tech's Student Collaboratoy
 
-| <img src="/Project2_Feature_Detection/resources/Tata.jpg" height="400px">    | <img src="/Project2_Feature_Detection/resources/Tata1.jpg" height="100px"> 
+##### Input
+
+| <img src="/Project2_Feature_Detection/resources/IMG_3580 height="400px">    | <img src="/Project2_Feature_Detection/resources/IMG_3581.jpg" height="400px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
 
-#### Performance Benchmark
+##### Matched features
+
+Not all matches are shown (4960 matches in total)
+
+<img src="/Project2_Feature_Detection/resources/Tata2.jpg"> 
+
+
+### Performance Benchmark
+
+Using the MOPS Detector and Ratio matching led to the best performance with an average AUC of 0.944, followed by the  MOPS and SSD method with an AUC of 0.872. The Simple Descriptor with both Ratio matching (AUC of 0.86) and with SSD (AUC of 0.845) performed worse. 
 
 | <img src="/Project2_Feature_Detection/resources/Bench_Ratio_MOPS.jpg" height="400px">  | <img src="/Project2_Feature_Detection/resources/Bench_Ratio_Simple.jpg" height="400px">  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src="/Project2_Feature_Detection/resources/Bench_SSD_MOPS.jpg" height="400px">    | <img src="/Project2_Feature_Detection/resources/Bench_SSD_Simple.jpg" height="100px"> 
+| <img src="/Project2_Feature_Detection/resources/Bench_SSD_MOPS.jpg" height="400px">    | <img src="/Project2_Feature_Detection/resources/Bench_SSD_Simple.jpg" height="400px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
+
+
 
 
 
