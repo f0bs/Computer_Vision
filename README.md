@@ -25,7 +25,7 @@ Detailed project description can be found [here](http://www.cs.cornell.edu/cours
 | Name                  | Function                                           |
 | ------------          | -------------------------------------------------- |
 | /resources            | Images used to create hybrid                       |
-| adjust_brightness.py  | Adjust brightness of output image                  |
+| adjust_brightness.py  | Adjust brightness of resulting image               |
 | hybrid.py             | Apply the five filters to the two images and blend |
 | test.py               | Test cases provided to test and debug our code     |
 | gui.py                | Gui provided to create panorama                    |
@@ -37,11 +37,9 @@ Detailed project description can be found [here](http://www.cs.cornell.edu/cours
 * SciPy
 
 
-### Output
+### Result: Al De Niro
 
-#### Al De Niro
-
-##### Final configuration 
+#### Final configuration 
 
 Al Pacino (left.jpg): low pass
 Robert De Niro (right.jpg): high pass
@@ -59,21 +57,18 @@ Robert De Niro (right.jpg): high pass
   "save_grayscale": 0
 ```
 
-##### Input
+#### Input
 | <img src="/Project1_Hybrid_Images/resources/left.jpg" height="400px">  | <img src="/Project1_Hybrid_Images/resources/right.jpg" height="400px">  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-##### Hybrid Image
+#### Hybrid Image
 
 | <img src="/Project1_Hybrid_Images/resources/hybrid.jpg" height="400px">    | <img src="/Project1_Hybrid_Images/resources/hybrid.jpg" height="100px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
      
       
    
-   
-   
-   
-   
+     
       
 ## Project 2: Feature Detection & Matching 
 
@@ -114,22 +109,22 @@ Detailed project description can be found [here](http://www.cs.cornell.edu/cours
 * SciPy
 
 
-### Output
+### Result
 
-#### Yosemite
+### 1. Yosemite
 
-##### Input
+#### Input
 
 | <img src="/Project2_Feature_Detection/resources/yosemite1.jpg">  | <img src="/Project2_Feature_Detection/resources/yosemite2.jpg">  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 
-##### Detected features
+#### Detected features
 
 <img src="/Project2_Feature_Detection/resources/harris_features.png" height="400px">
 
 
-##### Matched features
+#### Matched features
 
 Not all matches are shown in the image (1120 matches in total)
 
@@ -137,21 +132,21 @@ Not all matches are shown in the image (1120 matches in total)
 
 
 
-#### Cornell Tech's Student Collaboratoy
+### 2. Cornell Tech's Student Collaboratoy
 
-##### Input
+#### Input
 
-| <img src="/Project2_Feature_Detection/resources/IMG_3580" height="400px">    | <img src="/Project2_Feature_Detection/resources/IMG_3581.jpg" height="400px"> 
+| <img src="/Project2_Feature_Detection/resources/IMG_3580.jpg" height="400px">    | <img src="/Project2_Feature_Detection/resources/IMG_3581.jpg" height="400px"> 
 | ---------------------------------------------------------------- | --------------------------------------- |
 
-##### Matched features
+#### Matched features
 
 Not all matches are shown (4960 matches in total)
 
 <img src="/Project2_Feature_Detection/resources/Tata2.jpg"> 
 
 
-### Performance Benchmark
+### 3. Performance Benchmark
 
 Using the MOPS Detector and Ratio matching led to the best performance with an average AUC of 0.944, followed by the  MOPS and SSD method with an AUC of 0.872. The Simple Descriptor with both Ratio matching (AUC of 0.86) and with SSD (AUC of 0.845) performed worse.
 
@@ -222,23 +217,23 @@ Detailed project description can be found [here](http://www.cs.cornell.edu/cours
 * SciPy
 
 
-### Example outputs
+### Results
 
-#### Yosemite
+### 1. Yosemite
 
-##### Input
+#### Input
 | ![](/Project3_Panorama_Autostitch/resources/yosemite/panorama/yosemite1.jpg) | ![](/Project3_Panorama_Autostitch/resources/yosemite/panorama/yosemite2.jpg) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![](/Project3_Panorama_Autostitch/resources/yosemite/panorama/yosemite3.jpg) | ![](/Project3_Panorama_Autostitch/resources/yosemite/panorama/yosemite4.jpg) |
 
-##### Panorama
+#### Panorama
 
 ![](/Project3_Panorama_Autostitch/resources/yosemite/yosemite_pano_homography_blendwidth50.png)
 
 
-#### Our own pictures
+### 2. Our own pictures
 
-##### Input
+#### Input
 
 These pictures were taken with the iPhone XR with 4.25mm focal length and CCD (sensor) width of 5.66m
 
@@ -249,7 +244,7 @@ These pictures were taken with the iPhone XR with 4.25mm focal length and CCD (s
 | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3661.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3662.jpg) | ![](Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3663.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3664.jpg) |
 | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3665.jpg) | ![](/Project3_Panorama_Autostitch/resources/own_pictures/input_360/IMG_3666.jpg) |||
 
-##### Panorama
+#### Panorama
 
 The final 360 panorama looks a bit blurry because we did not have a tripod, i.e. the horizontal movement is not as consistent and we were not able to fully correct for the distortion. We used a blend width of 200 pixels and a translation to create the panorama.
 
