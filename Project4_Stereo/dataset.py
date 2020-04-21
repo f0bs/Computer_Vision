@@ -233,5 +233,5 @@ class MiddleburyDataset(object):
         string = string[1:-1]
         lines = string.split(';')
         assert len(lines) == 3
-        lines = map(lambda x: map(float, x.strip().split()), lines)
+        lines = list(map(lambda x: list(map(float, x.strip().split())), lines))
         return np.array(lines)

@@ -84,8 +84,7 @@ def project_impl(K, Rt, points):
     extra_ones = np.tile([1], points.shape[0]*points.shape[1])
     extra_ones = extra_ones.reshape((points.shape[0], points.shape[1],1))
     h_points = np.concatenate((points, extra_ones), axis=2)
-    X = np.reshape(h_points, (np.prod(h_points.shape[:2]), h_points.shape[2])).T
-    xs  = np.dot(projection_Matrix, X)
+    xs  = np.dot(h_points, projection_Matrix.T)
     # Normalize to convert back from homogeneous coordinates to 2D coordinates
     deno = xs[:,:,2][:,:,np.newaxis]
     normalized_xs = xs / deno
